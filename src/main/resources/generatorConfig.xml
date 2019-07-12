@@ -4,9 +4,17 @@
 	<!-- 需要指明数据库连接器的绝对路径 -->
 <!--     <classPathEntry location="D:\devTool\repository\springboot\mysql\mysql-connector-java\8.0.15\mysql-connector-java-8.0.15.jar" /> -->
     <context id="context1">
+    	<!-- 为模型生成序列化方法-->
+    	<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+    	<!-- 为生成的Java模型创建一个toString方法 -->
+<!--         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/> -->
+    	<!--生成mapper.xml时覆盖原文件-->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
         <commentGenerator>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true" />
+            <property name="suppressDate" value="true"/>
+            <property name="addRemarkComments" value="true"/>
         </commentGenerator>
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/payment?serverTimezone=GMT%2B8" driverClass="com.mysql.jdbc.Driver" password="root" userId="root" />
