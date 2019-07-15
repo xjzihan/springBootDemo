@@ -1,8 +1,6 @@
 package com.xj.designPattern.observer;
 
-import java.util.Observable;
-
-public class Test extends Observable{
+public class Test{
 
 	public static void main(String[] args) {
 		Publisher pub = new Publisher();
